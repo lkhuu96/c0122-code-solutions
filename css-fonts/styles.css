@@ -1,0 +1,16 @@
+body {
+  font-family: 'Sedgwick Ave', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  font-style: italic;
+}
+
+p {
+  font-family: 'Neonderthaw', sans-serif;
+  line-height: 2.0em;
+}
