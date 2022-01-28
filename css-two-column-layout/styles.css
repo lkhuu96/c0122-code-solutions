@@ -2,7 +2,7 @@ p {
   font-family: Karla, sans-serif;
   font-weight: 400;
   font-size: 80%;
-  line-height: 1.5em;
+  line-height: 1.7em;
 }
 
 img {
@@ -14,7 +14,14 @@ h1 {
 }
 
 h3 {
-  font-size: 100%;
+  font-size: 95%;
+}
+
+button {
+  color: rgb(209 76 69);
+  background-color: white;
+  border-color: rgb(209 76 69);
+  padding: 8px 30px;
 }
 
 .container {
@@ -71,6 +78,14 @@ h3 {
   line-height: 2em;
 }
 
-.one-half-margin {
-  padding: 2.5% auto;
+.padding {
+  padding: 10px;
+}
+
+.letter-spacing {
+  letter-spacing: 1px;
+}
+
+span {
+  display: inline-block;
 }
