@@ -1,0 +1,96 @@
+p {
+  font-family: Karla, sans-serif;
+  font-weight: 400;
+  font-size: 75%;
+  line-height: 1.7em;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 300%;
+}
+
+h3 {
+  font-size: 95%;
+}
+
+button {
+  color: rgb(209 76 69);
+  background-color: white;
+  border-color: rgb(209 76 69);
+  padding: 8px 30px;
+  border: 1.5px solid;
+}
+
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.col-one-half {
+  flex-basis: 45%;
+}
+
+.col-25 {
+  flex-basis: 25%;
+}
+
+.col-75 {
+  flex-basis: 75%;
+}
+
+.col-gap {
+  column-gap: 10%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.bold-font {
+  font-family: Karla, sans-serif;
+  font-weight: 700;
+}
+
+.t-b-margin {
+  margin: 3% auto;
+}
+
+.b-margin {
+  margin-bottom: 2%;
+}
+
+.line-height {
+  line-height: 2em;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.letter-spacing {
+  letter-spacing: 1px;
+}
+
+span {
+  display: inline-block;
+}
+
+.font-300 {
+  font-size: 300%;
+}
