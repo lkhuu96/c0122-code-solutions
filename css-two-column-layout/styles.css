@@ -1,7 +1,7 @@
 p {
   font-family: Karla, sans-serif;
   font-weight: 400;
-  font-size: 80%;
+  font-size: 75%;
   line-height: 1.7em;
 }
 
@@ -22,6 +22,7 @@ button {
   background-color: white;
   border-color: rgb(209 76 69);
   padding: 8px 30px;
+  border: 1.5px solid;
 }
 
 .container {
@@ -67,11 +68,11 @@ button {
 }
 
 .t-b-margin {
-  margin: 5% auto;
+  margin: 3% auto;
 }
 
 .b-margin {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .line-height {
@@ -88,4 +89,12 @@ button {
 
 span {
   display: inline-block;
+}
+
+.font-300 {
+  font-size: 300%;
+}
+
+/* rename col one half to something else */
+}
 }

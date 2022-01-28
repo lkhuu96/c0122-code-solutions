@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CSS Challenge - Two Column Layout</title>
-  <link rel="stylesheet" href="fonts.css" />
-  <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <div class="center-text">
-      <h1 class="bold-font letter-spacing">SCALE, SPEED, AGILITY</h1>
+      <h1 class="bold-font letter-spacing b-margin">SCALE, SPEED, AGILITY</h1>
       <p class="width70 t-b-margin">
         We've dedicated thousands of man hours to make healthcare institutions
         in the Helium netowrk run 10x more efficiently and deliver an
@@ -29,7 +29,7 @@
             <h3 class="bold-font t-b-margin letter-spacing">INTUITIVE, <span>SMART SOFTWARE</span></h3>
             <p>
               We build products that transform how healthcare facilities run
-              across Africa &mdash; making them radically more efficient
+              across Africa <span>&mdash; making</span> them radically more efficient
               operationally and financially, a complete turnaround.
             </p>
           </div>
@@ -83,7 +83,9 @@
         </div>
       </div>
     </div>
-    <button class="bold-font">LEARN MORE</button>
+    <div class="container center-text">
+      <button class="bold-font t-b-margin">LEARN MORE</button>
+    </div>
   </div>
 </body>
 </html>
