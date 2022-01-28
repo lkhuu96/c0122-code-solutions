@@ -1,0 +1,68 @@
+body {
+  background-color: rgb(25 150 218);
+}
+
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+}
+
+.row {
+  display: flex;
+}
+
+.white-text {
+  color: white;
+}
+
+.white-circle {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.icon-fit {
+  box-sizing: border-box;
+  width: 90%;
+  padding: 20%;
+}
+
+.col-3 {
+  flex-basis: calc(100% / 3);
+}
+
+.align-stretch {
+  align-content: stretch;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font {
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.lheight {
+  line-height: 1.5;
+}
+
+.gap {
+  column-gap: 30px;
+}
+
+.t-b-margin {
+  margin: 10px auto;
+}
+
+.font-size {
+  font-size: 90%;
+}
+
+h2 {
+  font-size: 170%;
+}
