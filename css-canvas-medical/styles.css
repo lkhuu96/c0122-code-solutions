@@ -11,18 +11,38 @@
   flex-basis: calc(100% / 4);
 }
 
-.col-6 {
-  flex-basis: calc(100% / 6);
+.col-3 {
+  flex-basis: calc(100% / 3);
 }
 
-.priv-bar {
-  padding: 5% 10%;
-  gap: 30px;
+.col-6 {
+  flex-basis: calc(100% / 6);
 }
 
 .link {
   color: rgb(110 110 110);
   text-decoration: none;
+}
+
+.blue-button-outline {
+  background-color: rgb(41 68 100);
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.canvas-info-bar {
+  background-color: rgb(82 83 81);
+  padding: 8% 10%;
+}
+
+.priv-bar {
+  padding: 3% 10%;
+  gap: 30px;
+}
+
+.get-started {
+  padding: 10px 30px;
 }
 
 .avenir-font {
@@ -42,14 +62,44 @@
   font-style: italic;
 }
 
-.white-color {
-  color: white;
+.white-text {
+  color: rgb(255 255 255);
 }
 
 .light-gray-bg {
   background-color: rgb(250 250 250);
 }
 
-.dark-gray-bg {
-  background-color: rgb(82 83 81);
+.font-x-small {
+  font-size: x-small;
+}
+
+.font-smaller {
+  font-size: smaller;
+}
+
+.font-large {
+  font-size: x-large;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.t-padding-15 {
+  padding-top: 15%;
+}
+
+.line-height {
+  line-height: 1.5em;
+}
+
+.canvas-logo {
+  width: 50%;
+}
+
+.center-button {
+  justify-content: right;
+  align-items: center;
+  height: 100%;
 }
