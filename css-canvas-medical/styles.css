@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.col-half {
+  flex-basis: calc(100% / 2);
+}
+
 .col-fourth {
   flex-basis: calc(100% / 4);
 }
@@ -44,15 +48,23 @@
   padding: 3% 10%;
 }
 
+.nav-bar {
+  padding: 1% 10%;
+}
+
 .get-started {
   padding: 10px 30px;
 }
 
 .nav-item-align {
   justify-content: right;
+  align-items: center;
   text-align: center;
-  column-gap: 50px;
+  column-gap: 40px;
   margin-right: 15%;
+  top: 0;
+  bottom: 0;
+  right: 7%;
 }
 
 .avenir-font {
@@ -104,12 +116,13 @@
   padding-top: 15%;
 }
 
-.line-height {
-  line-height: 1.5em;
+.t-b-padding-3 {
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
-.canvas-logo {
-  width: 80%;
+.line-height {
+  line-height: 1.5em;
 }
 
 .center-button {
@@ -120,29 +133,40 @@
 
 .relative {
   position: relative;
-  height: 100%;
 }
 
 .absolute {
   position: absolute;
 }
 
-.zero-right {
-  right: 0;
-}
-
 .contact-padding {
-  padding: 5%;
-}
-
-.justify-center {
-  justify-content: center;
+  padding: 4% 8%;
 }
 
 .space-between {
   justify-content: space-between;
 }
 
-.align-center {
-  display: block;
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.third-width {
+  width: 30%;
+}
+
+.margin-auto {
+  margin: auto;
 }
