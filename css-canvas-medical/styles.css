@@ -39,13 +39,16 @@ hr {
   border-radius: 3px;
 }
 
-.canvas-info-bar {
+.dark-gray-bg {
   background-color: rgb(82 83 81);
-  padding: 8%;
 }
 
-.content-side-padding {
-  padding: 1% 8%;
+.small-t-b-padding {
+  padding: 1% 6%;
+}
+
+.medium-t-b-padding {
+  padding: 4% 6%;
 }
 
 .get-started-padding {
@@ -116,7 +119,7 @@ hr {
 }
 
 .font-large {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .font-x-large {
@@ -132,8 +135,8 @@ hr {
 }
 
 .t-b-padding-3 {
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 4%;
+  padding-bottom: 4%;
 }
 
 .line-height {
@@ -170,5 +173,5 @@ hr {
 }
 
 .third-width {
-  width: 30%;
+  width: 33%;
 }
