@@ -1,0 +1,50 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.bg-color {
+  background-color: rgb(247 248 250);
+}
+
+img {
+  width: 100%;
+}
+
+.font-regular {
+  font-family: Barlow, sans-serif;
+  font-weight: 400;
+}
+
+.padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.font-bold {
+  font-weight: 900;
+}
+
+.font-small {
+  font-size: 0.8em;
+}
+
+.font-medium {
+  font-size: 1em;
+}
+
+.row {
+  display: flex;
+}
+
+.col-fourth {
+  flex-basis: 25%;
+}
+
+.icon {
+  width: 25%;
+}
+
+.justify-center {
+  justify-content: center;
+}
