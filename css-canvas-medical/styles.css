@@ -1,9 +1,10 @@
 hr {
   border-color: rgb(231 233 236 / 40%);
+  max-width: 950px;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 950px;
   margin: 0 auto;
 }
 
@@ -44,11 +45,11 @@ hr {
 }
 
 .small-t-b-padding {
-  padding: 1% 6%;
+  padding: 1% 4%;
 }
 
 .medium-t-b-padding {
-  padding: 4% 6%;
+  padding: 4%;
 }
 
 .get-started-padding {
@@ -107,7 +108,7 @@ hr {
 }
 
 .font-x-small {
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
 
 .font-small {
@@ -135,11 +136,11 @@ hr {
 }
 
 .t-b-padding-3 {
-  padding-top: 4%;
-  padding-bottom: 4%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
-.line-height {
+.line-height-small {
   line-height: 1.7em;
 }
 
@@ -173,5 +174,5 @@ hr {
 }
 
 .third-width {
-  width: 33%;
+  width: 35%;
 }
