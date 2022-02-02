@@ -1,0 +1,45 @@
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.col-gap {
+  column-gap: 1.5em;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.col-5 {
+  flex-basis: 20%;
+}
+
+.image-container {
+  height: 30em;
+}
+
+.gray-text {
+  font-weight: normal;
+  color: rgb(214 214 214);
+}
+
+.price-highlight {
+  background-color: rgb(255 242 231);
+  border-radius: 3px;
+  padding: 0 2%;
+}
