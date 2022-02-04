@@ -63,10 +63,9 @@
   align-items: center;
   text-align: center;
   column-gap: 3em;
-  margin-right: 8%;
   top: 0;
   bottom: 0;
-  right: 7%;
+  right: 20%;
 }
 
 .nav-bottom-border {
