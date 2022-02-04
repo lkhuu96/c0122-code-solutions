@@ -24,8 +24,11 @@
 }
 
 .link {
-  color: rgb(110 110 110);
   text-decoration: none;
+}
+
+.gray-text {
+  color: rgb(110 110 110);
 }
 
 .blue-button {
@@ -40,11 +43,11 @@
 }
 
 .small-t-b-padding {
-  padding: 1% 4%;
+  padding: 1% 5%;
 }
 
 .medium-t-b-padding {
-  padding: 4%;
+  padding: 3% 5%;
 }
 
 .get-started-padding {
@@ -52,7 +55,7 @@
 }
 
 .contact-us-padding {
-  padding: 4% 8%;
+  padding: 4% 6%;
 }
 
 .nav-item-align {
@@ -73,10 +76,18 @@
 }
 
 .bg-image {
-  background-image: url("images/hero.jpg");
   background-size: cover;
   background-position: center;
   width: auto;
+  height: 25em;
+}
+
+.index-image {
+  background-image: url("images/hero.jpg");
+}
+
+.products-image {
+  background-image: url("images/product/product-header.jpg");
 }
 
 .avenir-font {
@@ -176,4 +187,21 @@
 
 .third-width {
   width: 35%;
+}
+
+.two-third-width {
+  width: 63%;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.col-gap {
+  column-gap: 5em;
 }
