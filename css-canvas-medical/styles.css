@@ -1,5 +1,5 @@
 .container {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -43,15 +43,15 @@
 }
 
 .small-t-b-padding {
-  padding: 1% 5%;
+  padding: 1em 5em;
 }
 
 .medium-t-b-padding {
-  padding: 3% 5%;
+  padding: 3em 5em;
 }
 
 .get-started-padding {
-  padding: 10px 30px;
+  padding: 0.8em 3em;
 }
 
 .contact-us-padding {
@@ -147,9 +147,14 @@
   margin: 0;
 }
 
-.t-b-padding-3 {
-  padding-top: 3%;
-  padding-bottom: 3%;
+.t-b-padding-3em {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.t-b-padding-1em {
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .line-height-small {
@@ -190,7 +195,7 @@
 }
 
 .two-third-width {
-  width: 63%;
+  width: 61%;
 }
 
 .fill {
