@@ -1,0 +1,229 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.col-half {
+  flex-basis: calc(100% / 2);
+}
+
+.col-fourth {
+  flex-basis: calc(100% / 4);
+}
+
+.col-third {
+  flex-basis: calc(100% / 3);
+}
+
+.col-sixth {
+  flex-basis: calc(100% / 6);
+}
+
+.col-full {
+  flex-basis: 100%;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.gray-text {
+  color: rgb(110 110 110);
+}
+
+.blue-button {
+  background-color: rgb(41 68 100);
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.dark-gray-bg {
+  background-color: rgb(82 83 81);
+}
+
+.small-t-b-padding {
+  padding: 1em 5em;
+}
+
+.medium-t-b-padding {
+  padding: 3em 5em;
+}
+
+.large-t-b-padding {
+  padding: 5em;
+}
+
+.medium-t-b-margin {
+  margin: 3em 5em;
+}
+
+.get-started {
+  padding: 0.8em 2em;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.contact-us-padding {
+  padding: 4% 6%;
+}
+
+.nav-item-align {
+  justify-content: right;
+  align-items: center;
+  text-align: center;
+  column-gap: 3em;
+  top: 0;
+  bottom: 0;
+  right: 20%;
+}
+
+.nav-bottom-border {
+  border-bottom-style: solid;
+  border-width: 0.1em;
+  border-color: rgb(231 233 236 / 40%);
+}
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  width: auto;
+  height: 25em;
+}
+
+.index-image {
+  background-image: url("images/hero.jpg");
+}
+
+.products-image {
+  background-image: url("images/product/product-header.jpg");
+}
+
+.avenir-font {
+  font-family: Avenir, sans-serif;
+  font-weight: 500;
+}
+
+.th-font {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.th-font-fancy {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.white-text {
+  color: rgb(255 255 255);
+}
+
+.light-gray-bg {
+  background-color: rgb(250 250 250);
+}
+
+.shaded-background {
+  background: rgb(0 0 0 / 20%);
+}
+
+.font-x-small {
+  font-size: 0.7em;
+}
+
+.font-small {
+  font-size: 0.8em;
+}
+
+.font-smaller {
+  font-size: smaller;
+}
+
+.font-medium {
+  font-size: 1em;
+}
+
+.font-large {
+  font-size: 1.3em;
+}
+
+.font-x-large {
+  font-size: 1.8em;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.t-b-padding-3em {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.t-b-padding-1em {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.line-height-small {
+  line-height: 1.7em;
+}
+
+.center-button {
+  align-items: center;
+  height: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.third-width {
+  width: 35%;
+}
+
+.two-third-width {
+  width: 61%;
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.col-gap {
+  column-gap: 5em;
+}
