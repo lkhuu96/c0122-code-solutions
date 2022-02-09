@@ -14,32 +14,36 @@ compare both objects and return true if they are both strictly equal
 */
 
 function isAnagram(firstString, secondString) {
-  var firstStringNoSpace = '';
-  var secondStringNoSpace = '';
-  var firstStringObject = {};
-  var secondStringObject = {};
-  for (var x = 0; x < firstString.length; x++) {
-    if (firstString[x] !== ' ') {
-      firstStringNoSpace += firstString[x];
+  var firstStringNoSpace = removeWhiteSpace(firstString);
+  var secondStringNoSpace = removeWhiteSpace(secondString);
+  var firstStringObject = createCharObject(firstStringNoSpace);
+  var secondStringObject = createCharObject(secondStringNoSpace);
+  for (var key in firstStringObject) {
+    if (firstStringObject[key] !== secondStringObject[key]) {
+      return false;
     }
   }
-  for (var y = 0; y < secondString.length; y++) {
-    if (secondString[y] !== ' ') {
-      secondStringNoSpace += secondString[y];
+  return true;
+}
+
+function removeWhiteSpace(string) {
+  var noSpaceString = '';
+  for (var x = 0; x < string.length; x++) {
+    if (string[x] !== ' ') {
+      noSpaceString += string[x];
     }
   }
-  for (var z = 0; z < firstStringNoSpace.length; z++) {
-    if (firstStringObject[firstStringNoSpace[z]] > 0) {
-      firstStringObject[firstStringNoSpace[z]] += 1;
+  return noSpaceString;
+}
+
+function createCharObject(string) {
+  var newObj = {};
+  for (var y = 0; y < string.length; y++) {
+    if (newObj[string[y]] > 0) {
+      newObj[string[y]] += 1;
     } else {
-      firstStringObject[firstStringNoSpace[z]] = 1;
+      newObj[string[y]] = 1;
     }
   }
-  for (var w = 0; w < secondStringNoSpace.length; w++) {
-    if (secondStringObject[secondStringNoSpace[w]] > 0) {
-      secondStringObject[secondStringNoSpace[w]] += 1;
-    } else {
-      secondStringObject[secondStringNoSpace[w]] = 1;
-    }
-  }
+  return newObj;
 }
