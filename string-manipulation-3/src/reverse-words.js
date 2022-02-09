@@ -9,14 +9,19 @@ when all letters for a word are added (stopped at array word.length), add newWor
   to reversedArray, clear newWord, and start looping next word in originalArray
 once loop is finished, concatenate all words in reversed Array with each other plus
   a space
-on last word, do not include space at the end.
+
 */
 
-// function reverseWords(string) {
-//   var originalArray = string.split(' ');
-//   var reversedArray = [];
-//   var newWord = '';
-//   for (var x = 0; x < originalArray.length; x++) {
-//     // for (var y = 0; y < )
-//   }
-// }
+function reverseWords(string) {
+  var originalArray = string.split(' ');
+  var reversedArray = [];
+  var newWord = '';
+  for (var x = 0; x < originalArray.length; x++) {
+    for (var y = (originalArray[x].length - 1); y >= 0; y--) {
+      newWord += originalArray[x][y];
+    }
+    reversedArray.push(newWord);
+    newWord = '';
+  }
+  return reversedArray.join(' ');
+}
