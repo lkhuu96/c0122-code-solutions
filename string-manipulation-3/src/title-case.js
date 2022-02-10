@@ -48,16 +48,46 @@ if they are, convert to API or JavaScript
 //   return titleCase;
 // }
 
-// function titleCase(title) {
-//   var lowerTitle = title.toLowerCase();
-//   var titleCase = '';
-//   for (var x = 0; x < lowerTitle.length; x++) {
-//     if (lowerTitle[x - 1] === ' ' || lowerTitle[x - 1] === '-') {
-//       titleCase += lowerTitle[x].toUpperCase();
-//     } else {
-//       titleCase += lowerTitle[x];
-//     }
-//   }
-//   var titleCaseArray = titleCase.split(' ');
+function titleCase(title) {
+  var lowerTitle = title.toLowerCase();
+  var titleCaseArray = lowerTitle.split(': ');
+  for (var x = 0; x < titleCaseArray.length; x++) {
+    titleCaseArray[x] = makeTitle(titleCaseArray[x]);
+  }
+  for (var y = 0; y < titleCaseArray.length; y++) {
+    titleCaseArray[y] = checkMinorWords(titleCaseArray[y]);
+  }
+  titleCaseArray = titleCaseArray.join(': ');
+  return titleCaseArray;
+}
 
-// }
+function makeTitle(string) {
+  var titleString = '';
+  for (var x = 0; x < string.length; x++) {
+    if (x === 0 || string[x - 1] === ' ' || string[x - 1] === '-') {
+      titleString += string[x].toUpperCase();
+    } else {
+      titleString += string[x];
+    }
+  }
+  return titleString;
+}
+
+function checkMinorWords(string) {
+  var minorWords = ['And', 'Or', 'But', 'A', 'An', 'The', 'As', 'At', 'By', 'For', 'In', 'Of', 'On', 'Per', 'To'];
+  var split = string.split(' ');
+  for (var x = 1; x < split.length; x++) {
+    if (minorWords.includes(split[x])) {
+      split.splice(x, 1, split[x].toLowerCase());
+    }
+  }
+  for (var y = 0; y < split.length; y++) {
+    if (split[y] === 'Javascript') {
+      split.splice(y, 1, 'JavaScript');
+    } else if (split[y] === 'Api') {
+      split.splice(y, 1, 'API');
+    }
+  }
+  split = split.join(' ');
+  return split;
+}
