@@ -49,25 +49,15 @@ if they are, convert to API or JavaScript
 // }
 
 // function titleCase(title) {
-//   var titleCase = '';
 //   var lowerTitle = title.toLowerCase();
-//   var emptyWord = title[0].toUpperCase();
-//   var minorWords = ['And', 'Or', 'But', 'A', 'An', 'The', 'As', 'At', 'By', 'For', 'In', 'Of', 'On', 'Per', 'To'];
-//   for (var x = 1; x < lowerTitle.length; x++) {
+//   var titleCase = '';
+//   for (var x = 0; x < lowerTitle.length; x++) {
 //     if (lowerTitle[x - 1] === ' ' || lowerTitle[x - 1] === '-') {
-//       emptyWord += lowerTitle[x].toUpperCase();
+//       titleCase += lowerTitle[x].toUpperCase();
 //     } else {
-//       emptyWord += lowerTitle[x];
-//     }
-//     if (minorWords.includes(emptyWord) && titleCase.length > 1 && titleCase[titleCase.length - 2] !== ':') {
-//       emptyWord = emptyWord.toLowerCase();
-//     }
-//     if (emptyWord === 'Javascript') {
-//       emptyWord = 'JavaScript';
-//     } else if (emptyWord === 'Api') {
-//       emptyWord = 'API';
+//       titleCase += lowerTitle[x];
 //     }
 //   }
-//   titleCase += emptyWord;
-//   console.log(titleCase);
+//   var titleCaseArray = titleCase.split(' ');
+
 // }
