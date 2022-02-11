@@ -45,7 +45,7 @@ body {
   flex-basis: 50%;
 }
 
-.play-again {
+#play-again {
   background: gray;
   flex-wrap: wrap;
   text-align: center;
