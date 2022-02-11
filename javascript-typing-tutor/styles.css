@@ -1,3 +1,9 @@
+body {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -19,9 +25,28 @@
 
 .current {
   color: black;
-  text-decoration: underline;
+  border-bottom: 2px solid black;
 }
 
 .correct {
   color: rgb(9 194 9);
+}
+
+.wrong {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.hide {
+  display: none;
+}
+
+.col-50 {
+  flex-basis: 50%;
+}
+
+.play-again {
+  background: gray;
+  flex-wrap: wrap;
+  text-align: center;
 }
