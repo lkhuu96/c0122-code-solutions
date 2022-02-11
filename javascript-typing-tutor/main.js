@@ -1,7 +1,7 @@
 var $h1 = document.querySelector('h1');
 var $h3 = document.querySelector('h3');
 var incorrectCounter = 0;
-var word = 'grumpy wizards';
+var word = 'grumpy wizards make toxic brew';
 for (var x = 0; x < word.length; x++) {
   $h1.appendChild(makeSpan(word[x]));
 }
@@ -39,7 +39,7 @@ function checkKey(event) {
         }
         $span[y + 1].className = 'current';
         return;
-      } else {
+      } else if (event.key !== 'Shift' && event.key !== 'CapsLock') {
         $span[y].className = 'wrong';
         incorrectCounter++;
         return;
