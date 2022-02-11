@@ -1,0 +1,59 @@
+body {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  word-spacing: 0.3em;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.current {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.correct {
+  color: rgb(9 194 9);
+}
+
+.wrong {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.hide {
+  display: none;
+}
+
+.col-50 {
+  flex-basis: 50%;
+}
+
+.restart {
+  background-color: rgb(192 192 192);
+  padding: 5% 0;
+}
+
+#play-again {
+  background-color: rgb(0 0 0 / 59.6%);
+  flex-wrap: wrap;
+  text-align: center;
+}
+}
