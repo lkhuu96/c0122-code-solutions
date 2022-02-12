@@ -14,14 +14,18 @@ continue until stopping value is reached
 return the newArray
  */
 
-// function zip(first, second) {
-//   var newArray = [];
-//   var arrayPair = [];
-//   var stopValue = first.length;
-//   if (second.length < stopValue) {
-//     stopValue = second.length;
-//   }
-//   for (var i = 0; i < stopValue; i++) {
-
-//   }
-// }
+function zip(first, second) {
+  var newArray = [];
+  var arrayPair = [];
+  var stopValue = first.length;
+  if (second.length < stopValue) {
+    stopValue = second.length;
+  }
+  for (var i = 0; i < stopValue; i++) {
+    arrayPair.push(first[i]);
+    arrayPair.push(second[i]);
+    newArray.push(arrayPair);
+    arrayPair = [];
+  }
+  return newArray;
+}
