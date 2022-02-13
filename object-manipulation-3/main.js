@@ -6,26 +6,54 @@ make function to create deck
 create cards for each suit (make function)
 use for loop, loop 13 times (one for each card, ace through king)
 take suit as argument and add to card container
-
+make random card function that deals 2 cards and takes them out of deck
+make it so it can deal to every person
+then need to take value of each hand, calculate both card values
+  if there is a string value, make that equal 10, every other card rank is
+  their base value
+add each total value to the player
+take each total value
 */
 
-var cards = [];
 var suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
-// var cardValues = [];
-// {rank: number, suit: cardsuit}
+var cards = [];
+var playerNames = ['Player 1', 'Player 2', 'Player 3', 'Player 4'];
 var players = [];
-// { name: player, hand: [{rank: number, suit: cardsuit}, {rank: number, suit: cardsuit}]}
-makePlayers(['Player 1', 'Player 2', 'Player 3', 'Player 4']);
-for (var suitIndex = 0; suitIndex < suits.length; suitIndex++) {
-  makeCard(suits[suitIndex]);
+var numberOfPlayerCards = 3;
+var handTotal = [];
+
+if ((numberOfPlayerCards * playerNames.length) > 52) {
+  console.log('Not enough cards to play');
+} else {
+  makePlayers(playerNames);
+  startGame(players);
+  if (players.length > 1) {
+    handTotal = [];
+    startGame(players);
+  }
+  console.log('Winner!', players[0].name);
 }
 
-shuffleAndDeal(players[2]);
-findHandValue(players[2]);
+function startGame(playerList) {
+  loopThrough(suits, makeCard);
+  cards = _.shuffle(cards);
+  loopThrough(playerList, dealCards);
+  loopThrough(playerList, calculateHandValue);
+  var maxValue = _.max(handTotal);
+  _.remove(playerList, function (n) {
+    return n.total !== maxValue;
+  });
+}
+
+function loopThrough(array, callback) {
+  for (var index = 0; index < array.length; index++) {
+    callback(array[index]);
+  }
+}
 
 function makePlayers(playerList) {
-  for (var x = 0; x < playerList.length; x++) {
-    players.push({ name: playerList[x], hand: [] });
+  for (var i = 0; i < playerList.length; i++) {
+    players.push({ name: playerList[i], hand: [] });
   }
 }
 
@@ -45,18 +73,14 @@ function makeCard(cardSuit) {
   }
 }
 
-function shuffleAndDeal(player) {
-  var randomCard1 = Math.floor(Math.random() * cards.length);
-  var card1 = cards[randomCard1];
-  cards.splice(randomCard1, 1);
-  var randomCard2 = Math.floor(Math.random() * cards.length);
-  var card2 = cards[randomCard2];
-  cards.splice(randomCard2, 1);
-  player.hand.push(card1);
-  player.hand.push(card2);
+function dealCards(player) {
+  for (var i = 0; i < numberOfPlayerCards; i++) {
+    player.hand.push(cards[i]);
+  }
+  cards = _.drop(cards, numberOfPlayerCards);
 }
 
-function findHandValue(player) {
+function calculateHandValue(player) {
   var playerHand = player.hand;
   var total = 0;
   for (var i = 0; i < playerHand.length; i++) {
@@ -66,14 +90,6 @@ function findHandValue(player) {
       total += playerHand[i].rank;
     }
   }
-  console.log('total', total);
+  handTotal.push(total);
+  player.total = total;
 }
-
-/*
-made random card function that deals 2 cards and takes them out of deck
-make it so it can deal to every person
-then need to take value of each hand, calculate, and then console log winner
-to calculate number for each player, make an array that holds their value
-match each players index with the card value
-for loop to create each value at players index
- */
