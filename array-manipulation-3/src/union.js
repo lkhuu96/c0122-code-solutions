@@ -29,9 +29,8 @@ function checkMatching(array, arrayContainer) {
     }
     if (isMatching === false) {
       arrayContainer.push(array[i]);
-    } else {
-      isMatching = false;
     }
+    isMatching = false;
   }
   return arrayContainer;
 }

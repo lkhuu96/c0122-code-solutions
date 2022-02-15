@@ -26,9 +26,8 @@ function unique(array) {
     }
     if (isMatching === false) {
       newArray.push(array[i]);
-    } else {
-      isMatching = false;
     }
+    isMatching = false;
   }
   return newArray;
 }
