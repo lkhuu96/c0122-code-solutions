@@ -22,6 +22,7 @@ function unique(array) {
     for (var j = 0; j < newArray.length; j++) {
       if (array[i] === newArray[j]) {
         isMatching = true;
+        break;
       }
     }
     if (isMatching === false) {
