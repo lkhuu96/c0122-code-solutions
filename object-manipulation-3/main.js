@@ -6,88 +6,101 @@ make function to create deck
 create cards for each suit (make function)
 use for loop, loop 13 times (one for each card, ace through king)
 take suit as argument and add to card container
-make random card function that deals 2 cards and takes them out of deck
-make it so it can deal to every person
+make function that takes a list of players
+each player is an object
+  player name
+  player hand (the cards that they are given)
+  player total (the value of their hand)
+make random card function that deals x cards and takes them out of deck
+make it so it can deal x cards to every person
 then need to take value of each hand, calculate both card values
+  if card is an ace, value is set to 11
   if there is a string value, make that equal 10, every other card rank is
   their base value
 add each total value to the player
-take each total value
+take each total value from each player and find the max
+find the player(s) whose hand matches the max value
+add those players to 'winner' variable
+if more than one player has the max value, start game over with just those players
+  keep repeating until only one player is left
+  need array to keep 'winners' and if array length is > 1, keep repeating
+when starting game over, need to emptty hand for each player
+recreate deck, shuffle, and deal
+console.log final winner name
 */
 
 var suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+var faceCards = ['Jack', 'Queen', 'King', 'Ace'];
 var cards = [];
 var playerNames = ['Player 1', 'Player 2', 'Player 3', 'Player 4'];
+var numberOfCards = 0;
 var players = [];
-var numberOfPlayerCards = 3;
+var winner = [];
 var handTotal = [];
 
-if ((numberOfPlayerCards * playerNames.length) > 52) {
+if ((numberOfCards * playerNames.length) > 52) {
   console.log('Not enough cards to play');
 } else {
-  makePlayers(playerNames);
-  startGame(players);
-  if (players.length > 1) {
+  _.map(playerNames, makePlayers);
+  startGame(players, 2);
+  while (winner.length > 1) {
+    console.log('Tied! Dealing again');
+    players = winner;
+    winner = [];
     handTotal = [];
-    startGame(players);
+    cards = [];
+    startGame(players, numberOfCards);
   }
-  console.log('Winner!', players[0].name);
+  console.log('Winner!', winner[0].name);
+  players.forEach(viewPlayers);
 }
 
-function startGame(playerList) {
-  loopThrough(suits, makeCard);
+function viewPlayers(player) {
+  console.log('Player:', player.name, 'Total:', player.total);
+}
+
+function startGame(playerList, cardAmount) {
+  numberOfCards = cardAmount;
+  _.map(suits, makeCard);
   cards = _.shuffle(cards);
-  loopThrough(playerList, dealCards);
-  loopThrough(playerList, calculateHandValue);
+  _.map(playerList, dealCards);
+  _.map(playerList, calculateHandValue);
   var maxValue = _.max(handTotal);
-  _.remove(playerList, function (n) {
-    return n.total !== maxValue;
+  winner = _.filter(playerList, function (n) {
+    return n.total === maxValue;
   });
 }
 
-function loopThrough(array, callback) {
-  for (var index = 0; index < array.length; index++) {
-    callback(array[index]);
-  }
-}
-
 function makePlayers(playerList) {
-  for (var i = 0; i < playerList.length; i++) {
-    players.push({ name: playerList[i], hand: [] });
-  }
+  players.push({ name: playerList, hand: [] });
 }
 
 function makeCard(cardSuit) {
-  for (var card = 1; card <= 13; card++) {
-    if (card === 1) {
-      cards.push({ rank: 'Ace', suit: cardSuit });
-    } else if (card === 11) {
-      cards.push({ rank: 'Jack', suit: cardSuit });
-    } else if (card === 12) {
-      cards.push({ rank: 'Queen', suit: cardSuit });
-    } else if (card === 13) {
-      cards.push({ rank: 'King', suit: cardSuit });
-    } else {
-      cards.push({ rank: card, suit: cardSuit });
-    }
+  for (var card = 2; card <= 10; card++) {
+    cards.push({ rank: card, suit: cardSuit });
+  }
+  for (var face = 0; face < faceCards.length; face++) {
+    cards.push({ rank: faceCards[face], suit: cardSuit });
   }
 }
 
 function dealCards(player) {
-  for (var i = 0; i < numberOfPlayerCards; i++) {
+  player.hand = [];
+  for (var i = 0; i < numberOfCards; i++) {
     player.hand.push(cards[i]);
   }
-  cards = _.drop(cards, numberOfPlayerCards);
+  cards = _.drop(cards, numberOfCards);
 }
 
 function calculateHandValue(player) {
-  var playerHand = player.hand;
   var total = 0;
-  for (var i = 0; i < playerHand.length; i++) {
-    if (typeof playerHand[i].rank === 'string') {
+  for (var i = 0; i < player.hand.length; i++) {
+    if (player.hand[i].rank === 'Ace') {
+      total += 11;
+    } else if (typeof player.hand[i].rank === 'string') {
       total += 10;
     } else {
-      total += playerHand[i].rank;
+      total += player.hand[i].rank;
     }
   }
   handTotal.push(total);
