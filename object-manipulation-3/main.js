@@ -31,57 +31,49 @@ console.log final winner name
 
 var suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
 var faceCards = ['Jack', 'Queen', 'King', 'Ace'];
-var cards = [];
 var playerNames = ['Player 1', 'Player 2', 'Player 3', 'Player 4'];
-var numberOfCards = 0;
+var numberOfCards = 2;
+var cards = [];
 var players = [];
 var winner = [];
-var handTotal = [];
 
 if ((numberOfCards * playerNames.length) > 52) {
   console.log('Not enough cards to play');
 } else {
   _.map(playerNames, makePlayers);
-  startGame(players, 2);
+  startGame(players, numberOfCards);
   while (winner.length > 1) {
-    console.log('Tied! Dealing again');
+    console.log('Tie! Dealing again');
     players = winner;
-    winner = [];
-    handTotal = [];
-    cards = [];
     startGame(players, numberOfCards);
   }
   console.log('Winner!', winner[0].name);
-  players.forEach(viewPlayers);
-}
-
-function viewPlayers(player) {
-  console.log('Player:', player.name, 'Total:', player.total);
 }
 
 function startGame(playerList, cardAmount) {
-  numberOfCards = cardAmount;
-  _.map(suits, makeCard);
-  cards = _.shuffle(cards);
+  winner = [];
+  _.map(suits, makeDeck);
   _.map(playerList, dealCards);
   _.map(playerList, calculateHandValue);
-  var maxValue = _.max(handTotal);
+  var maxValue = _.max(_.map(players, 'total'));
   winner = _.filter(playerList, function (n) {
     return n.total === maxValue;
   });
 }
 
 function makePlayers(playerList) {
-  players.push({ name: playerList, hand: [] });
+  players.push({ name: playerList });
 }
 
-function makeCard(cardSuit) {
+function makeDeck(cardSuit) {
+  cards = [];
   for (var card = 2; card <= 10; card++) {
     cards.push({ rank: card, suit: cardSuit });
   }
   for (var face = 0; face < faceCards.length; face++) {
     cards.push({ rank: faceCards[face], suit: cardSuit });
   }
+  cards = _.shuffle(cards);
 }
 
 function dealCards(player) {
@@ -103,6 +95,5 @@ function calculateHandValue(player) {
       total += player.hand[i].rank;
     }
   }
-  handTotal.push(total);
   player.total = total;
 }
