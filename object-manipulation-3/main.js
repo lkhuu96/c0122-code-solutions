@@ -48,10 +48,12 @@ if ((numberOfCards * playerNames.length) > 52) {
     startGame(players, numberOfCards);
   }
   console.log('Winner!', winner[0].name);
+  players.forEach(viewPlayers);
 }
 
 function startGame(playerList, cardAmount) {
   winner = [];
+  cards = [];
   _.map(suits, makeDeck);
   _.map(playerList, dealCards);
   _.map(playerList, calculateHandValue);
@@ -66,7 +68,6 @@ function makePlayers(playerList) {
 }
 
 function makeDeck(cardSuit) {
-  cards = [];
   for (var card = 2; card <= 10; card++) {
     cards.push({ rank: card, suit: cardSuit });
   }
@@ -96,4 +97,8 @@ function calculateHandValue(player) {
     }
   }
   player.total = total;
+}
+
+function viewPlayers(player) {
+  console.log('Player:', player.name, 'Hand:', player.hand, 'Total:', player.total);
 }
