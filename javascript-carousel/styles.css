@@ -1,0 +1,45 @@
+i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+i.fal {
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.gap-10 {
+  column-gap: 10%;
+}
+
+.gap-1 {
+  column-gap: 1%;
+}
