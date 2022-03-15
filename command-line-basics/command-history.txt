@@ -1,0 +1,84 @@
+    1  cd ~/repos/code-journal
+    2  git status
+    3  git pull origin master
+    4  git status
+    5  git pull origin master
+    6  cd ~/repos/ajax-project
+    7  git status
+    8  git add js/main.js
+    9  git commit -m "fixed issue where loading appeared after remove from favorites button was clicked"
+   10  git status
+   11  git add js/main.js
+   12  git commit -m 'added error message when content cannot be loaded'
+   13  cd
+   14  cd ~/repos/driving-game
+   15  node -v
+   16  cd ~/repos/c0122-code-solutions
+   17  git branch command-line-basics
+   18  git switch command-line-basics
+   19  pwd
+   20  git switch master
+   21  cd command-line-basics
+   22  pwd
+   23  man man
+   24  man cat
+   25  man
+   26  q
+   27  man cat
+   28  cat laziness.txt
+   29  cat impatience.txt
+   30  man cat
+   31  cat hubris.txt
+   32  man cat
+   33  cat laziness.txt impatience.txt hubris.txt
+   34  cat laziness.txt impatience.txt hubris.txt > three-virtues.txt
+   35  cat three-virtues.txt
+   36  man ls
+   37  ls
+   38  ls -a
+   39  ls -F
+   40  man ls
+   41  ls -a lfz-staff/
+   42  ls -F lfz-staff/
+   43  ls -aF lfz-staff/
+   44  ls -aF lfz-staff > lfz-staff/contents.txt
+   45  cat lfz-staff/contents.txt
+   46  man pwd
+   47  pwd
+   48  pwd > i-was-here.txt
+   49  ls
+   50  cat i-was-here.txt
+   51  man echo
+   52  echo 'Hello World!'
+   53  echo 'Hello World!' > hello.txt
+   54  ls
+   55  cat hello.txt
+   56  man touch
+   57  touch tag-youre-it.txt
+   58  man touch
+   59  touch snoot/boop.txt
+   60  ls snoot/
+   61  man mkdir
+   62  mkdir parent
+   63  ls
+   64  mkdir -p parent/child/grandchild
+   65  touch parent/child/grandchild/.gitkeep
+   66  ls -a parent/child/grandchild
+   67  man mv
+   68  mv pokiemans pokemon
+   69  ls
+   70  rm
+   71  man rm
+   72  rm lol.txt
+   73  ls
+   74  rm kill-me/
+   75  man rm
+   76  rm -r kill-me/
+   77  ls
+   78  man cp
+   79  cp and-then.txt no-and-then.txt
+   80  ls
+   81  cat and-then.txt
+   82  cat no-and-then.txt
+   83  man history
+   84  history > command-history.txt
