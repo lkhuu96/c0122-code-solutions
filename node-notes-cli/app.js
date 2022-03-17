@@ -14,8 +14,14 @@ fs.readFile('data.json', 'utf8', (err, json) => {
   } else if (command === 'create') {
     notes[nextId] = textInput;
     jsonObject.nextId++;
-    fs.writeFile('data.json', JSON.stringify(jsonObject, null, 2), err => {
-      if (err) throw err;
-    });
+  } else if (command === 'delete') {
+    if (notes[textInput]) {
+      delete notes[textInput];
+    } else {
+      console.log(`No object with id '${textInput}' to delete`);
+    }
   }
+  fs.writeFile('data.json', JSON.stringify(jsonObject, null, 2), err => {
+    if (err) throw err;
+  });
 });
