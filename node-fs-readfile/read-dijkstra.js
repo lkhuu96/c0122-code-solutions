@@ -1,5 +1,6 @@
 const fs = require('fs');
-fs.readFile('/mnt/c/Users/trace/repos/c0122-code-solutions/node-fs-readfile/dijkstra.txt', 'utf8', (err, data) => {
+const path = __dirname;
+fs.readFile(path + '/dijkstra.txt', 'utf8', (err, data) => {
   if (err) {
     throw err;
   }
