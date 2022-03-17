@@ -1,12 +1,21 @@
 const fs = require('fs');
 const command = process.argv[2];
+const textInput = process.argv[3];
 
-if (command === 'read') {
-  fs.readFile('data.json', 'utf8', (err, json) => {
-    if (err) throw err;
-    var notes = JSON.parse(json);
-    for (const key in notes.notes) {
-      console.log(`${key}: ${notes.notes[key]}`);
+fs.readFile('data.json', 'utf8', (err, json) => {
+  if (err) throw err;
+  const jsonObject = JSON.parse(json);
+  const notes = jsonObject.notes;
+  const nextId = jsonObject.nextId;
+  if (command === 'read') {
+    for (const key in notes) {
+      console.log(`${key}: ${notes[key]}`);
     }
-  });
-}
+  } else if (command === 'create') {
+    notes[nextId] = textInput;
+    jsonObject.nextId++;
+    fs.writeFile('data.json', JSON.stringify(jsonObject, null, 2), err => {
+      if (err) throw err;
+    });
+  }
+});
