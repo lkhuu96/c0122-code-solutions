@@ -1,10 +1,19 @@
 const fs = require('fs');
 let cat = '';
-for (let i = 2; i < process.argv.length; i++) {
-  fs.readFile('./' + process.argv[i], 'utf8', (err, data) => {
+let index = 2;
+const total = process.argv.length;
+
+read();
+
+function read() {
+  fs.readFile('./' + process.argv[index], 'utf8', (err, data) => {
+    index++;
     if (err) throw err;
-    cat += (data + '\n');
-    if (i === process.argv.length - 1) {
+    if (index < total) {
+      cat += (data + '\n');
+      read();
+    } else {
+      cat += (data);
       console.log(cat);
     }
   });
