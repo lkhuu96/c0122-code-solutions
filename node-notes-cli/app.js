@@ -6,31 +6,28 @@ const secondArg = process.argv[4];
 const notes = jsonObject.notes;
 const nextId = jsonObject.nextId;
 
-fs.readFile('data.json', 'utf8', (err, json) => {
-  if (err) throw err;
-  if (command === 'read') {
-    for (const key in notes) {
-      console.log(`${key}: ${notes[key]}`);
-    }
-  } else if (command === 'create') {
-    notes[nextId] = firstArg;
-    jsonObject.nextId++;
-  } else if (command === 'delete') {
-    if (notes[firstArg]) {
-      delete notes[firstArg];
-    } else {
-      console.log(`No object with id '${firstArg}' to delete`);
-    }
-  } else if (command === 'update') {
-    if (notes[firstArg]) {
-      notes[firstArg] = secondArg;
-    } else {
-      console.log(`No object with id '${firstArg}' to update`);
-    }
-  } else {
-    console.log('invalid command');
+if (command === 'read') {
+  for (const key in notes) {
+    console.log(`${key}: ${notes[key]}`);
   }
-  fs.writeFile('data.json', JSON.stringify(jsonObject, null, 2), err => {
-    if (err) throw err;
-  });
+} else if (command === 'create') {
+  notes[nextId] = firstArg;
+  jsonObject.nextId++;
+} else if (command === 'delete') {
+  if (notes[firstArg]) {
+    delete notes[firstArg];
+  } else {
+    console.log(`No object with id '${firstArg}' to delete`);
+  }
+} else if (command === 'update') {
+  if (notes[firstArg]) {
+    notes[firstArg] = secondArg;
+  } else {
+    console.log(`No object with id '${firstArg}' to update`);
+  }
+} else {
+  console.log('invalid command');
+}
+fs.writeFile('data.json', JSON.stringify(jsonObject, null, 2), err => {
+  if (err) throw err;
 });
