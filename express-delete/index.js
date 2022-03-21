@@ -23,14 +23,16 @@ const grades = {
 };
 
 app.get('/api/grades', (req, res) => {
-  res.json(grades);
+  const gradesArray = [];
+  for (const id in grades) {
+    gradesArray.push(grades[id]);
+  }
+  res.json(gradesArray);
 });
 
 app.delete('/api/grades/:id', (req, res) => {
-  for (const idNum in grades) {
-    if (idNum === req.params.id) {
-      delete grades[idNum];
-    }
+  if (grades[req.params.id]) {
+    delete grades[req.params.id];
   }
   res.sendStatus(204);
 });
