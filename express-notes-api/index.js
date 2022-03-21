@@ -47,6 +47,10 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+app.delete('/api/notes:id', (req, res) => {
+
+});
+
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Server is running on port 3000');
