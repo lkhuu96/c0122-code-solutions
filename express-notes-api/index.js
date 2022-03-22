@@ -17,7 +17,7 @@ app.get('/api/notes', (req, res) => {
 app.get('/api/notes/:id', (req, res) => {
   const notes = dataJSON.notes;
   const idNum = Number(req.params.id);
-  if (!Number.isInteger(idNum)) {
+  if (!Number.isInteger(idNum) || idNum < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (notes[idNum]) {
     res.status(200).json(notes[idNum]);
@@ -30,9 +30,9 @@ app.post('/api/notes', (req, res) => {
   const noteContent = req.body;
   const notes = dataJSON.notes;
   const nextId = dataJSON.nextId;
-  if (!noteContent.content || !noteContent) {
+  if (!noteContent.content) {
     res.status(400).json({ error: 'content is a required field' });
-  } else if (noteContent) {
+  } else {
     notes[nextId] = noteContent;
     notes[nextId].id = nextId;
     dataJSON.nextId++;
@@ -50,11 +50,11 @@ app.post('/api/notes', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
   const idNum = Number(req.params.id);
   const notes = dataJSON.notes;
-  if (!Number.isInteger(idNum)) {
+  if (!Number.isInteger(idNum) || idNum < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (!notes[idNum]) {
     res.status(404).json({ error: `cannot find note with id ${idNum}` });
-  } else if (notes[idNum]) {
+  } else {
     delete notes[idNum];
     fs.writeFile('data.json', JSON.stringify(dataJSON, null, 2), err => {
       if (err) {
@@ -71,7 +71,7 @@ app.put('/api/notes/:id', (req, res) => {
   const idNum = Number(req.params.id);
   const notes = dataJSON.notes;
   const noteContent = req.body;
-  if (!Number.isInteger(idNum)) {
+  if (!Number.isInteger(idNum) || idNum < 1) {
     res.status(400).json({ error: 'id must be a positive integer' });
   } else if (!noteContent.content) {
     res.status(400).json({ error: 'content is a required field' });
