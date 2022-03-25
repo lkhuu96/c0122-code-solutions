@@ -33,8 +33,7 @@ app.post('/api/grades', (req, res) => {
     res.status(400).json({
       error: "must have 'name', 'course', and 'score'."
     });
-  }
-  if (Number(body.score) > 100 || Number(body.score) < 0) {
+  } else if (Number(body.score) > 100 || Number(body.score) < 0) {
     res.status(400).json({
       error: 'score must be between 0 and 100'
     });
@@ -64,13 +63,11 @@ app.put('/api/grades/:gradeId', (req, res) => {
     res.status(400).json({
       error: '\'gradeId\' must be a positive integer'
     });
-  }
-  if (!body.name || !body.course || !body.score) {
+  } else if (!body.name || !body.course || !body.score) {
     res.status(400).json({
       error: "must have 'name', 'course', and 'score'."
     });
-  }
-  if (Number(body.score) > 100 || Number(body.score) < 0) {
+  } else if (Number(body.score) > 100 || Number(body.score) < 0) {
     res.status(400).json({
       error: 'score must be between 0 and 100'
     });
