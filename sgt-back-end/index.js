@@ -33,10 +33,13 @@ app.post('/api/grades', (req, res) => {
     res.status(400).json({
       error: "must have 'name', 'course', and 'score'."
     });
-  } else if (Number(body.score) > 100 || Number(body.score) < 0) {
+    return;
+  }
+  if (Number(body.score) > 100 || Number(body.score) < 0) {
     res.status(400).json({
       error: 'score must be between 0 and 100'
     });
+    return;
   }
   const params = [body.name, body.course, body.score];
   const sql = `
@@ -63,14 +66,19 @@ app.put('/api/grades/:gradeId', (req, res) => {
     res.status(400).json({
       error: '\'gradeId\' must be a positive integer'
     });
-  } else if (!body.name || !body.course || !body.score) {
+    return;
+  }
+  if (!body.name || !body.course || !body.score) {
     res.status(400).json({
       error: "must have 'name', 'course', and 'score'."
     });
-  } else if (Number(body.score) > 100 || Number(body.score) < 0) {
+    return;
+  }
+  if (Number(body.score) > 100 || Number(body.score) < 0) {
     res.status(400).json({
       error: 'score must be between 0 and 100'
     });
+    return;
   }
   const params = [body.name, body.course, body.score, gradeId];
   const sql = `
@@ -105,6 +113,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
     res.status(400).json({
       error: '\'gradeId\' must be a positive integer'
     });
+    return;
   }
   const params = [gradeId];
   const sql = `
