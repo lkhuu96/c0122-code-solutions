@@ -19,33 +19,22 @@ class ToggleSwitch extends React.Component {
     let position = {};
     let switchColor = {};
     let label = 'OFF';
-    if (this.state.toggle === false) {
-      switchColor = {
-        backgroundColor: 'gray'
-      };
-      position = {
-        left: 0
-      };
-    } else {
+    if (this.state.toggle === true) {
       switchColor = {
         backgroundColor: 'green'
       };
       position = {
         right: 0
       };
-      label = 'React is a library';
+      label = 'ON';
     }
     return (
       <div className='row col-gap'>
-        <div>
           <div className='row'>
             <div className="switch" style={switchColor}></div>
             <div onClick={this.clickToggle} style={position} className="circle"></div>
           </div>
-        </div>
-        <div>
-          <p>{label}</p>
-        </div>
+          <p onClick={this.clickToggle}>{label}</p>
       </div>
     );
   }
