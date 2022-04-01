@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.header {
+  background-color: gray;
+  text-align: center;
+  border: solid 1px black;
+}

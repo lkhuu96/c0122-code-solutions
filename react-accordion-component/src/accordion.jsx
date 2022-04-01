@@ -14,25 +14,31 @@ const listItems = [
     content: 'I am JavaScript'
   }
 ];
-function createTopics() {
-  const list = listItems.map(listItem => (
-    <li key={listItem.subject}>{listItem.subject}</li>
-  ));
-  return list;
-}
+
 class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false
     };
+
     this.createTopics = this.createTopics.bind(this);
+  }
+
+  createTopics() {
+    const list = listItems.map(listItem => (
+      <li key={listItem.subject}>
+        <div className='header'>{listItem.subject}</div>
+        <div>{listItem.content}</div>
+      </li>
+    ));
+    return list;
   }
 
   render() {
     return (
       <ul>
-        {createTopics()}
+        {this.createTopics()}
       </ul>
     );
   }
