@@ -19,27 +19,43 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: null
     };
-
-    this.createTopics = this.createTopics.bind(this);
+    this.changeView = this.changeView.bind(this);
+    this.createList = this.createList.bind(this);
   }
 
-  createTopics() {
-    const list = listItems.map(listItem => (
-      <li key={listItem.subject}>
-        <div className='header'>{listItem.subject}</div>
-        <div>{listItem.content}</div>
-      </li>
-    ));
+  createList() {
+    const list = listItems.map((listItem, indexNum) => {
+      let hide = 'hidden';
+      if (this.state.isOpen === indexNum) {
+        hide = '';
+      }
+      return (
+        <li key={indexNum}>
+          <div onClick={() => this.changeView(indexNum)} className='header'>{listItem.subject}</div>
+          <div className={hide}>{listItem.content}</div>
+        </li>
+      );
+    });
     return list;
+  }
+
+  changeView(indexNum) {
+    if (this.state.isOpen === indexNum) {
+      this.setState({
+        isOpen: null
+      });
+    } else {
+      this.setState({
+        isOpen: indexNum
+      });
+    }
   }
 
   render() {
     return (
-      <ul>
-        {this.createTopics()}
-      </ul>
+      <ul>{this.createList()}</ul>
     );
   }
 }

@@ -7,10 +7,18 @@ body {
 ul {
   list-style: none;
   padding: 0;
+  width: 10rem;
+}
+
+li > div {
+  border: solid 1px black;
 }
 
 .header {
   background-color: gray;
   text-align: center;
-  border: solid 1px black;
+}
+
+.hidden {
+  display: none;
 }
