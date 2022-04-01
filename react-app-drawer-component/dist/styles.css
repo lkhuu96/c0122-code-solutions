@@ -1,0 +1,61 @@
+body {
+  background-color: orange;
+  margin: 0;
+}
+
+i {
+  cursor: pointer;
+  margin: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.shade {
+  background-color: rgb(0 0 0 / 36.3%);
+  height: 100vh;
+  width: 100%;
+}
+
+.modal {
+  background: white;
+  left: -15rem;
+  padding-left: 1rem;
+  width: 10rem;
+  height: 100vh;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.ease-in {
+  left: 0;
+  transition: left 1s;
+}
+
+.ease-out {
+  left: -15rem;
+  transition: left 1s;
+}
