@@ -6,7 +6,7 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      interval: setInterval(() => this.nextImage(), 3000),
+      interval: null,
       image: images[0],
       imageIndex: 0
     };
@@ -15,17 +15,18 @@ class Carousel extends React.Component {
     this.jumpToImage = this.jumpToImage.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      interval: setInterval(() => this.nextImage(), 3000)
+    });
+  }
+
   nextImage() {
-    clearInterval(this.state.interval);
     let counter = this.state.imageIndex;
     if (counter === images.length - 1) {
       counter = -1;
     }
-    this.setState({
-      interval: setInterval(() => this.nextImage(), 3000),
-      image: images[counter + 1],
-      imageIndex: counter + 1
-    });
+    this.jumpToImage((counter + 1));
   }
 
   jumpToImage(index) {
@@ -39,16 +40,11 @@ class Carousel extends React.Component {
   }
 
   prevImage() {
-    clearInterval(this.state.interval);
     let counter = this.state.imageIndex;
     if (counter === 0) {
       counter = images.length;
     }
-    this.setState({
-      interval: setInterval(() => this.nextImage(), 3000),
-      image: images[counter - 1],
-      imageIndex: counter - 1
-    });
+    this.jumpToImage((counter - 1));
   }
 
   makeCircles() {
