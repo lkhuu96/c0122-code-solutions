@@ -1,0 +1,27 @@
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.row {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+input {
+  margin: 1rem 1rem 1rem 0;
+}
+
+p {
+  margin: 0;
+}
+
+i {
+  font-size: 2rem;
+}
