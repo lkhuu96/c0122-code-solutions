@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+img {
+  object-fit: cover;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.carousel-container {
+  max-width: 960px;
+}
