@@ -12,7 +12,7 @@ function authorizationMiddleware(req, res, next) {
     req.user = payload;
     next();
   } catch (error) {
-    console.error(error);
+    next(error);
   }
 
   /**
