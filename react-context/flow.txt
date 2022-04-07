@@ -1,0 +1,88 @@
+1. User can sign up
+When the user first loads the page, the program will check a user's localstorage
+  for a token to see if they are signed in.
+During this period, nothing will render because the isAuthorizing state is true,
+  and the render method will return null as long as isAuthorizing is true
+Once the program has checked for a token, it will render the appropriate page
+  (sign-in page if no token is found, user's home page if a token is found)
+When user clicks on "sign up" or "register" button, the window hash changes to
+  #sign-up.
+The text for links, buttons and subtext change to indicate to the user that they
+  are now able to sign up for an account
+As the user types ther username/password into the respective boxes, the state
+  changes to represent the current input of each box. (ie if user types in the
+  username box, the value of the username property of the this.state object gets
+  updated with the user's input.)
+The user will then press submit, an http header is constructed and then the
+  fetch method is called with a path and the http header
+The fetch request searches the index.js file for an app with the specified
+  method and url that the fetch method and pass the username and password
+The password is hashed, and then the username and password are stored into the
+  database
+Then the user is taken to the sign in page, where they can then sign in
+
+
+2. User can sign in
+When user clicks on sign button, the window hash changes to #sign-in.
+The text for links, buttons and subtext change to indicate to the user that they
+  are now able to sign-in to their account
+As the user types ther username/password into the respective boxes, the state
+  changes to represent the current input of each box.
+The user will then press submit, an http header is constructed and then the
+  fetch method is called with a path and the http header
+The fetch request searches the index.js file for an app with the specified
+  method and url that the fetch method and pass the username and password
+The username is used to search a database and retrieve the userId and hashed
+  password of that user
+A function checks if there is a user with that username, if there is it will
+  then check and see if the hashed password in the database matches the hashed
+  user provided password.
+If the passwords match, a payload is created with the user's information
+The payload is then signed with the clients token, creating a JSON web token.
+The token and the user's payload is then sent back to the fetch request where
+  a conditional checks if there us a valid user and token.
+If there is a valid username and token, the result is passed into the onSignIn
+  prop (from auth.jsx), which calls the handleSignIn method (from app.jsx).
+The handleSignIn method then stores the JSON web token into the user's local
+  storage and the changes the state to the user
+The change in state causes the page to rerender
+During the rerender, the renderPage method is called and checks the window's hash
+  location
+On initial login, the hash location will be 'sign-in'.  The program will then
+  look in the auth.jsx file to render the page
+Within the auth.jsx file, the AuthPage render method will check if there is a
+  user property and if there is, it will return a call to the Redirect function
+  in redirect.jsx file.
+The Redirect function sets the hash location to "#", which triggers the hashchange
+  event listener, which triggers a state change and another rerender.
+The renderPage() method is called and because the route is empty, the program
+  will run the home.jsx file.
+The home.jsx file will check if there is a valid user property in the state and
+  then render the home content if there is.  If there is no user, the page will
+  redirect to the sign-in page.
+The rerender will create a new Navbar class and within that class definition,
+  the render method will see that the user is not null and render a sign-out
+  button instead of a sign-in and sign-up button.
+
+3. User can stay signed in
+When a user reloads the page, the componentDidMount() method (in the app.jsx file)
+  will retrieve the user's token in their local storage (which should be there
+  if they were signed in)
+The componentDIdMount() method then checks whether there is a token, and if there
+  is, it will decode the token and set the user state to the decoded token (the
+  user's information).
+As long as the user has a token and their user state is not null, the auth.jsx
+  file will redirect them to their home page and load their content
+
+4. User can sign out
+When a user clicks on the 'sign-out' button, it will trigger the onclick event
+   handler and call the handleSignOut method.
+The handleSignOut method removes the token from the user's local storage and
+  sets the user's state to null.
+The state change causes a rerender
+The rerender will check the current route and call the React element creation
+  based on the route.
+The user will eventually be redirected to the sign-in page because there is no
+  longer a valid user and token.
+The sign in page is rendered and the user will have to sign-in again to view their
+  home page.
