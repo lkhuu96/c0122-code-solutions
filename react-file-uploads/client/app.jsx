@@ -25,10 +25,10 @@ export default class App extends React.Component {
       body: formData
     })
       .then(res => {
-        res.json();
+        return res.json();
       })
       .then(res => {
-        console.log(formData);
+        console.log(res);
         this.setState({
           caption: ''
         });
