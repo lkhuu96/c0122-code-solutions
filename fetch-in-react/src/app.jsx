@@ -10,15 +10,13 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(usersList => {
-        this.setState({
-          users: usersList,
-          isLoading: false
-        });
-      })
+  async componentDidMount() {
+    const records = await fetch('https://jsonplaceholder.typicode.com/users');
+    const result = await records.json();
+    await this.setState({
+      users: result,
+      isLoading: false
+    })
       .catch(err => console.error(err));
   }
 
