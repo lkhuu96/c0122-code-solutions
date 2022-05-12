@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // class Stopwatch extends React.Component {
 //   constructor(props) {
@@ -71,18 +71,27 @@ import React, { useState } from 'react';
 function StopwatchHooks() {
   const [count, setCounter] = useState(0);
   const [playButton, setPlayButton] = useState(true);
-  let timer;
-  let button = 'fa-play';
-  if (playButton === false) {
-    timer = setTimeout(() => setCounter(count + 1), 1000);
-    button = 'fa-pause';
-  } else {
-    clearTimeout(timer);
-    button = 'fa-play';
+  const [button, setButton] = useState('fa-play');
+  const [timer, setTimer] = useState(null);
+  function resetCounter() {
+    if (playButton) {
+      setCounter(0);
+    }
   }
+
+  useEffect(() => {
+    if (playButton === false) {
+      setTimer(() => setTimeout(() => setCounter(count + 1), 1000));
+      setButton('fa-pause');
+    } else {
+      setTimer(clearTimeout(timer));
+      setButton('fa-play');
+    }
+  }, [playButton, count]);
+
   return (
       <div>
-        <div onClick={playButton === true && (() => setCounter(0))}className="row circle">
+        <div onClick={resetCounter}className="row circle">
           <p>{count}</p>
         </div>
         <div onClick={() => setPlayButton(!playButton)} className="row"><i className={`fa-solid fa ${button}`}></i></div>
