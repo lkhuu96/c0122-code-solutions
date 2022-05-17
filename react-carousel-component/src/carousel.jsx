@@ -77,13 +77,16 @@ function Carousel() {
   const [image, setImage] = useState(images[0]);
   const [imageIndex, setIndex] = useState(0);
   function changeImage(direction) {
-    setIndex(imageIndex + direction);
-    if (imageIndex === images.length) {
+    if ((imageIndex + direction) > images.length - 1) {
       setIndex(0);
-    } else if (imageIndex === -1) {
+      setImage(images[0]);
+    } else if ((imageIndex + direction) < 0) {
       setIndex(images.length - 1);
+      setImage(images[images.length - 1]);
+    } else {
+      setIndex(imageIndex + direction);
+      setImage(images[imageIndex + direction]);
     }
-    setImage(images[imageIndex]);
   }
   return (
     <div className='carousel-container'>
