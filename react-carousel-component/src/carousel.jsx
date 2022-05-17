@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const images = ['001', '004', '007', '025', '039'];
 
@@ -76,7 +76,12 @@ const images = ['001', '004', '007', '025', '039'];
 function Carousel() {
   const [image, setImage] = useState(images[0]);
   const [imageIndex, setIndex] = useState(0);
+  const [timeout, changeTimeout] = useState(null);
+  useEffect(() => {
+    changeTimeout(setTimeout(() => changeImage(1), 3000));
+  }, [image]);
   function changeImage(direction) {
+    clearTimeout(timeout);
     if ((imageIndex + direction) > images.length - 1) {
       setIndex(0);
       setImage(images[0]);
@@ -99,6 +104,7 @@ function Carousel() {
         {images.map((item, index) => {
           return (
             <i onClick={() => {
+              clearTimeout(timeout);
               setImage(images[index]);
               setIndex(index);
             }} key={index} className={'fa-circle ' + (imageIndex === index ? 'fas' : 'far')}></i>
