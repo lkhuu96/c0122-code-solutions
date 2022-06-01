@@ -5,6 +5,7 @@ export default function AuthForm(props) {
   const handleChange = event => {
     const { name, value } = event.target;
     setInput({
+      ...input,
       [name]: value
     });
   };

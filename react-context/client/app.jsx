@@ -21,7 +21,7 @@ export default function App() {
     const user = token ? decodeToken(token) : null;
     setUser(user);
     setAuthorizing(false);
-  });
+  }, [route]);
 
   const handleSignIn = result => {
     const { user, token } = result;
