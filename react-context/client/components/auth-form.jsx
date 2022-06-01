@@ -1,30 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class AuthForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
+export default function AuthForm(props) {
+  const [input, setInput] = useState({});
+  const handleChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
-  }
+    setInput({
+      [name]: value
+    });
+  };
 
-  handleSubmit(event) {
+  const handleSubmit = event => {
     event.preventDefault();
-    const { action } = this.props;
+    const { action } = props;
     const req = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(input)
     };
     fetch(`/api/auth/${action}`, req)
       .then(res => res.json())
@@ -32,61 +25,58 @@ export default class AuthForm extends React.Component {
         if (action === 'sign-up') {
           window.location.hash = 'sign-in';
         } else if (result.user && result.token) {
-          this.props.onSignIn(result);
+          props.onSignIn(result);
         }
       });
-  }
+  };
 
-  render() {
-    const { action } = this.props;
-    const { handleChange, handleSubmit } = this;
-    const alternateActionHref = action === 'sign-up'
-      ? '#sign-in'
-      : '#sign-up';
-    const alternatActionText = action === 'sign-up'
-      ? 'Sign in instead'
-      : 'Register now';
-    const submitButtonText = action === 'sign-up'
-      ? 'Register'
-      : 'Log In';
-    return (
-      <form className="w-100" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
-          <input
-            required
-            autoFocus
-            id="username"
-            type="text"
-            name="username"
-            onChange={handleChange}
-            className="form-control bg-light" />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            required
-            id="password"
-            type="password"
-            name="password"
-            onChange={handleChange}
-            className="form-control bg-light" />
-        </div>
-        <div className="d-flex justify-content-between align-items-center">
-          <small>
-            <a className="text-muted" href={alternateActionHref}>
-              { alternatActionText }
-            </a>
-          </small>
-          <button type="submit" className="btn btn-primary">
-            { submitButtonText }
-          </button>
-        </div>
-      </form>
-    );
-  }
+  const { action } = props;
+  const alternateActionHref = action === 'sign-up'
+    ? '#sign-in'
+    : '#sign-up';
+  const alternatActionText = action === 'sign-up'
+    ? 'Sign in instead'
+    : 'Register now';
+  const submitButtonText = action === 'sign-up'
+    ? 'Register'
+    : 'Log In';
+  return (
+    <form className="w-100" onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="username" className="form-label">
+          Username
+        </label>
+        <input
+          required
+          autoFocus
+          id="username"
+          type="text"
+          name="username"
+          onChange={handleChange}
+          className="form-control bg-light" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label">
+          Password
+        </label>
+        <input
+          required
+          id="password"
+          type="password"
+          name="password"
+          onChange={handleChange}
+          className="form-control bg-light" />
+      </div>
+      <div className="d-flex justify-content-between align-items-center">
+        <small>
+          <a className="text-muted" href={alternateActionHref}>
+            { alternatActionText }
+          </a>
+        </small>
+        <button type="submit" className="btn btn-primary">
+          { submitButtonText }
+        </button>
+      </div>
+    </form>
+  );
 }
